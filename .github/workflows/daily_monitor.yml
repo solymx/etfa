@@ -1,0 +1,68 @@
+name: Daily ETF Monitor
+
+on:
+  schedule:
+    # 台灣時間每天 17:30（UTC 09:30）執行
+    # 投信通常 15:00-17:00 之間會把當日持股揭露出來
+    - cron: "30 9 * * *"
+  workflow_dispatch:  # 允許手動觸發
+    inputs:
+      only:
+        description: "只跑指定 ETF 代號（留空則全跑）"
+        required: false
+        default: ""
+      target_date:
+        description: "指定資料日期 YYYY-MM-DD（留空則用今天。禮拜日建議填上個週五）"
+        required: false
+        default: ""
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 需要寫回 commit
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          # 部分投信（例如野村）的 SSL 憑證缺 Subject Key Identifier 欄位，
+          # 在較嚴格的 OpenSSL 環境會驗證失敗。這個變數會讓 core/http.py
+          # 在正常驗證失敗後改用 insecure 模式抓取（僅限少數特定網站）。
+          # 正常 SSL 能通過時不會啟用。
+          MONITOR_ETF_ALLOW_INSECURE: "1"
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.only }}" ]; then
+            ARGS="$ARGS --only ${{ inputs.only }}"
+          fi
+          if [ -n "${{ inputs.target_date }}" ]; then
+            ARGS="$ARGS --date ${{ inputs.target_date }}"
+          fi
+          echo "Running: python main.py $ARGS"
+          python main.py $ARGS
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ reports/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: daily update $(date +'%Y-%m-%d')"
+            git push
+          fi

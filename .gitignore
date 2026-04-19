@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Local test artifacts (scripts/e2e_test.py 產生的假資料)
+# 但真實運行的 data/ 和 reports/ 要保留 commit
+# 所以不在這裡忽略
+
+# Sensitive
+.env
+*.local.yaml
+
+# OS
+Thumbs.db

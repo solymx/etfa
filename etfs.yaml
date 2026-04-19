@@ -1,0 +1,232 @@
+# =============================================================================
+# ETF 主配置檔
+# =============================================================================
+# 想新增一檔 ETF？只要在這裡加一段配置，main.py 就能跑起來。
+# 想關掉某檔暫停更新？把 enabled 改成 false。
+#
+# 欄位說明：
+#   code:      ETF 證券代號（顯示用，例如 "00980A"）
+#   name:      中文簡稱（報表標題用）
+#   issuer:    發行投信（用來分類和 index 首頁分組）
+#   category:  taiwan_stock / foreign_stock / bond
+#   fetcher:   用哪個 fetcher 模組抓資料（對應 core/fetchers/ 下的檔名）
+#   params:    傳給 fetcher 的參數（每家投信的 API 參數不同）
+#   enabled:   是否啟用（false 會被 main.py 跳過）
+#   track_changelog: （選用）設 true 會累積異動日誌到 data/<CODE>_changelog.csv
+#                    用於長期追蹤經理人操作風格
+# =============================================================================
+
+etfs:
+  # ========== 野村投信（nomurafunds.com.tw API）==========
+  - code: "00980A"
+    name: "野村臺灣智慧優選"
+    issuer: "野村投信"
+    category: "taiwan_stock"
+    fetcher: "nomura"
+    params:
+      fund_id: "00980A"
+    enabled: true
+
+  - code: "00985A"
+    name: "野村台灣增強50"
+    issuer: "野村投信"
+    category: "taiwan_stock"
+    fetcher: "nomura"
+    params:
+      fund_id: "00985A"
+    enabled: true
+
+  - code: "00999A"
+    name: "野村臺灣策略高息"
+    issuer: "野村投信"
+    category: "taiwan_stock"
+    fetcher: "nomura"
+    params:
+      fund_id: "00999A"
+    enabled: false  # Phase 2 啟用
+
+  # ========== 統一投信（ezmoney.com.tw 爬蟲）==========
+  - code: "00981A"
+    name: "統一台股增長"
+    issuer: "統一投信"
+    category: "taiwan_stock"
+    fetcher: "ezmoney"
+    params:
+      fund_code: "49YTW"   # ezmoney 的內部代號，需實際確認
+    enabled: true
+    track_changelog: true  # 累積異動日誌到 data/00981A_changelog.csv
+
+  - code: "00403A"
+    name: "統一台股升級50"
+    issuer: "統一投信"
+    category: "taiwan_stock"
+    fetcher: "ezmoney"
+    params:
+      fund_code: ""        # Phase 2 填入
+    enabled: false
+
+  # ========== 群益投信（capitalfund.com.tw API）==========
+  - code: "00982A"
+    name: "群益台灣精選強棒"
+    issuer: "群益投信"
+    category: "taiwan_stock"
+    fetcher: "capital"
+    params:
+      fund_id: "399"       # ⚠️ 原 repo 備註需確認代號
+    enabled: true
+
+  - code: "00992A"
+    name: "群益台灣科技創新"
+    issuer: "群益投信"
+    category: "taiwan_stock"
+    fetcher: "capital"
+    params:
+      fund_id: ""          # Phase 2 填入
+    enabled: false
+
+  # ========== 復華投信（fhtrust.com.tw Excel）==========
+  - code: "00991A"
+    name: "復華台灣未來50"
+    issuer: "復華投信"
+    category: "taiwan_stock"
+    fetcher: "fhtrust"
+    params:
+      etf_code: "ETF23"    # 復華官網的內部 code
+    enabled: true
+
+  # ========== Phase 2 待啟用：尚未實作 fetcher ==========
+  # 以下 ETF 先登錄清單，等對應 fetcher 寫好再啟用
+  - code: "00400A"
+    name: "國泰台股動能高息"
+    issuer: "國泰投信"
+    category: "taiwan_stock"
+    fetcher: "cathay"
+    params:
+      fund_code: "EA"     # 國泰內部簡碼（不是 00400A）
+    enabled: true
+
+  - code: "00401A"
+    name: "摩根台灣鑫收益"
+    issuer: "摩根投信"
+    category: "taiwan_stock"
+    fetcher: "jpmorgan"    # 待實作
+    params: {}
+    enabled: false
+
+  - code: "00983A"
+    name: "中信ARK創新"
+    issuer: "中國信託投信"
+    category: "taiwan_stock"
+    fetcher: "ctbc"        # 待實作
+    params: {}
+    enabled: false
+
+  - code: "00984A"
+    name: "安聯台灣高息成長"
+    issuer: "安聯投信"
+    category: "taiwan_stock"
+    fetcher: "allianz"
+    params: {}
+    enabled: false
+
+  - code: "00993A"
+    name: "安聯台灣"
+    issuer: "安聯投信"
+    category: "taiwan_stock"
+    fetcher: "allianz"
+    params: {}
+    enabled: false
+
+  - code: "00986A"
+    name: "台新全球龍頭成長"
+    issuer: "台新投信"
+    category: "foreign_stock"
+    fetcher: "taishin"
+    params:
+      etf_code: "00986A"
+    enabled: true
+
+  - code: "00987A"
+    name: "台新臺灣優勢成長"
+    issuer: "台新投信"
+    category: "taiwan_stock"
+    fetcher: "taishin"
+    params:
+      etf_code: "00987A"
+    enabled: true
+
+  - code: "00988A"
+    name: "統一全球創新"
+    issuer: "統一投信"
+    category: "foreign_stock"
+    fetcher: "ezmoney"
+    params:
+      fund_code: ""        # Phase 2 填入
+    enabled: false
+
+  - code: "00989A"
+    name: "摩根大美國領先科技"
+    issuer: "摩根投信"
+    category: "foreign_stock"
+    fetcher: "jpmorgan"
+    params: {}
+    enabled: false
+
+  - code: "00990A"
+    name: "元大全球AI新經濟"
+    issuer: "元大投信"
+    category: "foreign_stock"
+    fetcher: "yuanta"      # 待實作
+    params: {}
+    enabled: false
+
+  - code: "00994A"
+    name: "第一金台股趨勢優選"
+    issuer: "第一金投信"
+    category: "taiwan_stock"
+    fetcher: "firstsino"   # 待實作
+    params: {}
+    enabled: false
+
+  - code: "00995A"
+    name: "中信台灣卓越成長"
+    issuer: "中國信託投信"
+    category: "taiwan_stock"
+    fetcher: "ctbc"
+    params: {}
+    enabled: false
+
+  - code: "00996A"
+    name: "兆豐台灣豐收"
+    issuer: "兆豐投信"
+    category: "taiwan_stock"
+    fetcher: "megafund"    # 待實作
+    params: {}
+    enabled: false
+
+  - code: "00997A"
+    name: "群益美國增長"
+    issuer: "群益投信"
+    category: "foreign_stock"
+    fetcher: "capital"
+    params:
+      fund_id: ""          # Phase 2 填入
+    enabled: false
+
+  - code: "00998A"
+    name: "復華全球金融股票入息"
+    issuer: "復華投信"
+    category: "foreign_stock"
+    fetcher: "fhtrust"
+    params:
+      etf_code: ""         # Phase 2 填入
+    enabled: false
+
+# =============================================================================
+# 全域設定
+# =============================================================================
+settings:
+  data_dir: "data"
+  reports_dir: "reports"
+  backup_dir_suffix: "_backup"   # 備份資料夾後綴，例：00980A_backup/
+  trend_window_days: 10          # 分析器的預設對比窗格
