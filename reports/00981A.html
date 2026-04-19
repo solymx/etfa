@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>00981A 統一台股增長 · 持股追蹤</title>
+  <style>
+* { box-sizing: border-box; }
+body {
+  background: #f5f7fa;
+  font-family: "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2c3e50;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+h1, h2 { margin: 0 0 16px 0; }
+h1 { font-size: 24px; }
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #eef2f7;
+}
+.meta { color: #7f8c8d; font-size: 13px; }
+.nav-link {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #ecf0f1;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #34495e;
+  font-size: 13px;
+}
+.nav-link:hover { background: #dfe6e9; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: #34495e;
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+td { padding: 10px 12px; border-bottom: 1px solid #ecf0f1; }
+tr:hover { background: #fafbfc; }
+.text-end { text-align: right; font-variant-numeric: tabular-nums; }
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-new   { background: #e74c3c; }
+.badge-up    { background: #e67e22; }
+.badge-down  { background: #27ae60; }
+.badge-exit  { background: #95a5a6; }
+.badge-flat  { background: #bdc3c7; }
+.badge-first { background: #3498db; }
+.text-up   { color: #c0392b; font-weight: 600; }
+.text-down { color: #16a085; font-weight: 600; }
+.footer { margin-top: 20px; color: #95a5a6; font-size: 12px; text-align: right; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+      <div>
+        <h1>📊 00981A 統一台股增長</h1>
+        <div class="meta">統一投信 · 資料日期 2026-04-16 · 今日持股無變化</div>
+      </div>
+      <a class="nav-link" href="index.html">← 回首頁</a>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>狀態</th><th>代號</th><th>名稱</th>
+          <th class="text-end">持有股數</th>
+          <th class="text-end">較上次增減</th>
+          <th class="text-end">權重</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2330</td>
+            <td>台積電</td>
+            <td class="text-end">6,556,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">8.67%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2383</td>
+            <td>台光電</td>
+            <td class="text-end">3,012,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">7.46%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2308</td>
+            <td>台達電</td>
+            <td class="text-end">5,103,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">6.12%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3653</td>
+            <td>健策</td>
+            <td class="text-end">1,986,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">5.91%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2345</td>
+            <td>智邦</td>
+            <td class="text-end">4,253,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">5.73%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2368</td>
+            <td>金像電</td>
+            <td class="text-end">7,091,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">5.43%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6223</td>
+            <td>旺矽</td>
+            <td class="text-end">1,582,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">5.35%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3665</td>
+            <td>貿聯-KY</td>
+            <td class="text-end">3,467,848</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">5.34%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3017</td>
+            <td>奇鋐</td>
+            <td class="text-end">3,405,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">5.32%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>8046</td>
+            <td>南電</td>
+            <td class="text-end">8,609,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">4.06%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3037</td>
+            <td>欣興</td>
+            <td class="text-end">9,287,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">3.89%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>5274</td>
+            <td>信驊</td>
+            <td class="text-end">351,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">3.16%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2327</td>
+            <td>國巨*</td>
+            <td class="text-end">13,568,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">2.80%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2454</td>
+            <td>聯發科</td>
+            <td class="text-end">1,870,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">2.34%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6515</td>
+            <td>穎崴</td>
+            <td class="text-end">331,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">2.22%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3711</td>
+            <td>日月光投控</td>
+            <td class="text-end">6,879,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.98%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6274</td>
+            <td>台燿</td>
+            <td class="text-end">3,019,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.86%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6805</td>
+            <td>富世達</td>
+            <td class="text-end">1,474,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.80%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2449</td>
+            <td>京元電子</td>
+            <td class="text-end">9,529,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.71%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6510</td>
+            <td>精測</td>
+            <td class="text-end">683,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.66%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2303</td>
+            <td>聯電</td>
+            <td class="text-end">28,030,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.33%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>8358</td>
+            <td>金居</td>
+            <td class="text-end">5,508,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">1.32%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3211</td>
+            <td>順達</td>
+            <td class="text-end">3,703,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.87%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6669</td>
+            <td>緯穎</td>
+            <td class="text-end">349,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.86%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3661</td>
+            <td>世芯-KY</td>
+            <td class="text-end">336,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.77%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3189</td>
+            <td>景碩</td>
+            <td class="text-end">2,826,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.72%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2404</td>
+            <td>漢唐</td>
+            <td class="text-end">1,014,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.68%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>8210</td>
+            <td>勤誠</td>
+            <td class="text-end">965,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.64%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6147</td>
+            <td>頎邦</td>
+            <td class="text-end">7,884,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.59%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3443</td>
+            <td>創意</td>
+            <td class="text-end">271,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.57%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>5439</td>
+            <td>高技</td>
+            <td class="text-end">2,156,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.56%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>1303</td>
+            <td>南亞</td>
+            <td class="text-end">8,012,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.46%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>4979</td>
+            <td>華星光</td>
+            <td class="text-end">1,037,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.43%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>8996</td>
+            <td>高力</td>
+            <td class="text-end">535,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.43%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3264</td>
+            <td>欣銓</td>
+            <td class="text-end">3,355,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.38%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6187</td>
+            <td>萬潤</td>
+            <td class="text-end">419,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.33%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6488</td>
+            <td>環球晶</td>
+            <td class="text-end">886,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.29%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2481</td>
+            <td>強茂</td>
+            <td class="text-end">3,648,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.28%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>7769</td>
+            <td>鴻勁</td>
+            <td class="text-end">91,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.27%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3583</td>
+            <td>辛耘</td>
+            <td class="text-end">527,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.26%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>6191</td>
+            <td>精成科</td>
+            <td class="text-end">3,814,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.26%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3376</td>
+            <td>新日興</td>
+            <td class="text-end">1,498,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.19%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3324</td>
+            <td>雙鴻</td>
+            <td class="text-end">167,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.11%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2002</td>
+            <td>中鋼</td>
+            <td class="text-end">5,157,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.07%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3217</td>
+            <td>優群</td>
+            <td class="text-end">557,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.06%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>1319</td>
+            <td>東陽</td>
+            <td class="text-end">505,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.03%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2313</td>
+            <td>華通</td>
+            <td class="text-end">110,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.02%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3008</td>
+            <td>大立光</td>
+            <td class="text-end">13,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.02%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>1815</td>
+            <td>富喬</td>
+            <td class="text-end">106,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.01%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2357</td>
+            <td>華碩</td>
+            <td class="text-end">12,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.00%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>2439</td>
+            <td>美律</td>
+            <td class="text-end">12,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.00%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>3045</td>
+            <td>台灣大</td>
+            <td class="text-end">12,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.00%</td>
+          </tr>
+        
+          <tr>
+            <td><span class="badge badge-flat">持平</span></td>
+            <td>5347</td>
+            <td>世界</td>
+            <td class="text-end">10,000</td>
+            <td class="text-end"><span class="meta">-</span></td>
+            <td class="text-end">0.00%</td>
+          </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+      產生時間 2026-04-19 11:20:58
+      · <a href="00981A_trend.html">查看歷史趨勢</a>
+    </div>
+  </div>
+</body>
+</html>
