@@ -16,6 +16,11 @@ on:
         required: false
         default: ""
 
+# 讓 actions/checkout 和 setup-python 用 Node.js 24 執行
+# （2026-06 之後 GitHub 會強制，現在先行設定以消除 deprecation 警告）
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   update:
     runs-on: ubuntu-latest

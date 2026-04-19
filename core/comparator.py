@@ -22,8 +22,11 @@ STATUS_FIRST = "首次建立"
 
 
 def load_previous(csv_path: Path) -> pd.DataFrame | None:
-    """讀取上次存檔的 CSV 作為比對基準。沒有就回傳 None。"""
-    if not csv_path.exists():
+    """讀取指定 CSV 作為比對基準。沒有就回傳 None。
+
+    路徑可以是主檔 data/<code>.csv，也可以是 backup 的某個歷史快照。
+    """
+    if not csv_path or not csv_path.exists():
         return None
     try:
         # dtype 強制股票代號為字串，避免 "0050" 讀成 50

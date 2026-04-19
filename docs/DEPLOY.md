@@ -271,6 +271,27 @@ branch 'main' set up to track 'origin/main'.
 - 新增 `data/` 資料夾（裡面有 8 個 CSV + 8 個 `_backup/` 資料夾）
 - 新增 `reports/` 資料夾（裡面有 HTML 報告）
 
+### 🕐 想補抓之前的歷史資料？沒問題！
+
+系統有**時間智慧**設計，您可以隨意按任何日期順序手動觸發 workflow：
+
+**例子**：您今天（4/17）跑完後，想補抓 4/14、4/15、4/16 的資料：
+
+```
+Actions → Run workflow → target_date: 2026-04-14 → Run
+Actions → Run workflow → target_date: 2026-04-15 → Run
+Actions → Run workflow → target_date: 2026-04-16 → Run
+```
+
+結果：
+- ✅ 4/14、4/15、4/16 的 `backup/*.csv` 都會被正確建立
+- ✅ 4/14、4/15、4/16 的 HTML 報告都會產出
+- ✅ 主檔 `data/00981A.csv` 維持 4/17 的內容（**不會被舊資料覆蓋**）
+- ✅ `changelog.csv` 不會被污染（補歷史不寫 changelog）
+- ✅ 明天（4/18）自動跑時，會用 4/17 當基準正確比對
+
+系統會自動辨識「補歷史」vs「新資料」，您不用擔心順序。
+
 ---
 
 # 🎯 Part 5：啟用 GitHub Pages 線上看報告

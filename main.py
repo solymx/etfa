@@ -84,12 +84,34 @@ def process_one(
         df_new = fetcher_fn(**params)
         print(f"   ✅ 抓到 {len(df_new)} 檔持股")
 
-        # 2. 比對
-        old = comparator.load_previous(data_dir / f"{code}.csv")
+        # 2. 時間智慧：決定 baseline 和是否要更新主檔
+        # 從 backup 找「日期嚴格 < search_date 的最大日期」
+        baseline_path, baseline_date = storage.find_baseline_snapshot(
+            code, data_dir, search_date, backup_suffix=backup_suffix
+        )
+
+        # 判斷是否要更新主檔：
+        # 當 search_date 是目前最新的（沒有比它更新的 backup 存在）才更新
+        latest_existing = storage.get_latest_snapshot_date(
+            code, data_dir, backup_suffix=backup_suffix
+        )
+        is_catching_up = (
+            latest_existing is not None and search_date < latest_existing
+        )
+
+        if baseline_date:
+            print(f"   📆 比對基準：{baseline_date}")
+        else:
+            print(f"   📆 比對基準：（無，首次建立）")
+
+        if is_catching_up:
+            print(f"   ⏪ 補歷史模式（最新快照 {latest_existing} > {search_date}，不更新主檔與 changelog）")
+
+        old = comparator.load_previous(baseline_path) if baseline_path else None
         df_merged = comparator.compare(df_new, old)
 
-        # 2.5 若有設 track_changelog，把今日異動追加到長期日誌
-        if etf.get("track_changelog", False):
+        # 2.5 若有設 track_changelog 且不是補歷史模式，累積異動日誌
+        if etf.get("track_changelog", False) and not is_catching_up:
             log_path, n_changes = changelog.append_changes(
                 df_merged, code, search_date, data_dir
             )
@@ -98,12 +120,15 @@ def process_one(
             else:
                 print(f"   📝 今日無異動，未寫入 changelog")
 
-        # 3. 存檔（主檔 + 歷史備份）
+        # 3. 存檔：永遠寫 backup，只在非補歷史時更新主檔
         storage.save_snapshot(
-            df_new, code, data_dir, backup_suffix=backup_suffix
+            df_new, code, data_dir,
+            backup_suffix=backup_suffix,
+            target_date=search_date,
+            update_main=not is_catching_up,
         )
 
-        # 4. 產 HTML 日報
+        # 4. 產 HTML 日報（補歷史也產，但會覆蓋當日的報告）
         reporter.generate_daily_report(
             df=df_merged,
             code=code,
