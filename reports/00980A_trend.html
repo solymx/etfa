@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><title>00980A 野村臺灣智慧優選 · 歷史趨勢</title>
-<style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>00980A 野村臺灣智慧優選 · 歷史趨勢</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <style>
+    
 * { box-sizing: border-box; }
 body {
   background: #f5f7fa;
@@ -73,11 +78,96 @@ tr:hover { background: #fafbfc; }
 .text-up   { color: #c0392b; font-weight: 600; }
 .text-down { color: #16a085; font-weight: 600; }
 .footer { margin-top: 20px; color: #95a5a6; font-size: 12px; text-align: right; }
-</style></head>
-<body><div class="container">
-  <div class="header-bar">
-    <h1>📈 00980A 野村臺灣智慧優選 · 歷史趨勢</h1>
-    <a class="nav-link" href="index.html">← 回首頁</a>
+
+    .tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 14px; background: #f8f9fa; border-radius: 8px; margin: 16px 0;
+    }
+    .tag {
+      padding: 5px 12px; background: #fff; border: 1px solid #ddd;
+      border-radius: 20px; cursor: pointer; font-size: 13px;
+    }
+    .tag:hover { background: #3498db; color: #fff; border-color: #3498db; }
+    .tag.active { background: #3498db; color: #fff; border-color: #3498db; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .placeholder {
+      text-align: center; padding: 50px; color: #95a5a6;
+      border: 2px dashed #dfe4ea; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+      <div>
+        <h1>📈 00980A 野村臺灣智慧優選 · 歷史趨勢</h1>
+        <div class="meta">
+          3 筆歷史快照 ·
+          對比期間 2026-04-17 → 2026-04-19
+          （2 天）
+        </div>
+      </div>
+      <div>
+        <a class="nav-link" href="00980A.html">日報</a>
+        <a class="nav-link" href="index.html">首頁</a>
+      </div>
+    </div>
+
+    <h2>🔄 重點變動</h2>
+    <div class="grid">
+      <div>
+        <h3 style="color:#c0392b;">📈 加碼 Top 10</h3>
+        <table><thead><tr><th>代號</th><th>名稱</th><th class='text-end'>權重變動</th><th class='text-end'>目前權重</th></tr></thead><tbody><tr><td>2308</td><td>台達電</td><td class='text-end text-up'>+9.00%</td><td class='text-end'>9.00%</td></tr><tr><td>2345</td><td>智邦</td><td class='text-end text-up'>+8.00%</td><td class='text-end'>8.00%</td></tr><tr><td>2330</td><td>台積電</td><td class='text-end text-up'>+4.00%</td><td class='text-end'>34.00%</td></tr></tbody></table>
+      </div>
+      <div>
+        <h3 style="color:#16a085;">📉 減碼 Top 10</h3>
+        <table><thead><tr><th>代號</th><th>名稱</th><th class='text-end'>權重變動</th><th class='text-end'>目前權重</th></tr></thead><tbody><tr><td>2891</td><td>0</td><td class='text-end text-down'>-4.00%</td><td class='text-end'>0.00%</td></tr><tr><td>2317</td><td>鴻海</td><td class='text-end text-down'>-2.50%</td><td class='text-end'>7.50%</td></tr><tr><td>2303</td><td>聯電</td><td class='text-end text-down'>-2.00%</td><td class='text-end'>3.00%</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 32px;">📊 單股歷史走勢</h2>
+    <p class="meta">點選個股查看權重與股數變化</p>
+    <div class="tags"><div class="tag" onclick='showTrend("2330", this)'>2330 台積電</div><div class="tag" onclick='showTrend("2454", this)'>2454 聯發科</div><div class="tag" onclick='showTrend("2308", this)'>2308 台達電</div><div class="tag" onclick='showTrend("2345", this)'>2345 智邦</div><div class="tag" onclick='showTrend("3034", this)'>3034 聯詠</div><div class="tag" onclick='showTrend("2317", this)'>2317 鴻海</div><div class="tag" onclick='showTrend("2303", this)'>2303 聯電</div></div>
+    <div id="placeholder" class="placeholder">👆 請點選上方個股</div>
+    <div id="charts" style="display:none;">
+      <h3 id="chartTitle"></h3>
+      <div id="weightChart"></div>
+      <div id="sharesChart" style="margin-top: 20px;"></div>
+    </div>
+
+    <div class="footer">
+      產生時間 2026-04-19 11:42:56
+    </div>
   </div>
-  <p>需要至少 2 筆歷史快照才能分析趨勢。目前有 1 筆快照，請等系統累積幾天的資料後再來看。</p>
-</div></body></html>
+
+  <script>
+    const trendData = {"2303": {"name": "聯電", "dates": ["2026-04-17", "2026-04-18", "2026-04-19"], "weights": [5.0, 3.0, 3.0], "shares": [600000, 400000, 400000]}, "2308": {"name": "台達電", "dates": ["2026-04-19"], "weights": [9.0], "shares": [300000]}, "2317": {"name": "鴻海", "dates": ["2026-04-17", "2026-04-18", "2026-04-19"], "weights": [10.0, 10.0, 7.5], "shares": [800000, 800000, 600000]}, "2330": {"name": "台積電", "dates": ["2026-04-17", "2026-04-18", "2026-04-19"], "weights": [30.0, 32.0, 34.0], "shares": [1000000, 1200000, 1400000]}, "2345": {"name": "智邦", "dates": ["2026-04-18", "2026-04-19"], "weights": [6.0, 8.0], "shares": [150000, 200000]}, "2454": {"name": "聯發科", "dates": ["2026-04-17", "2026-04-18", "2026-04-19"], "weights": [15.0, 15.0, 15.0], "shares": [500000, 500000, 500000]}, "3034": {"name": "聯詠", "dates": ["2026-04-17", "2026-04-18", "2026-04-19"], "weights": [8.0, 8.0, 8.0], "shares": [200000, 200000, 200000]}};
+    function showTrend(code, el) {
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('placeholder').style.display = 'none';
+      document.getElementById('charts').style.display = 'block';
+      const d = trendData[code];
+      document.getElementById('chartTitle').innerText =
+        code + ' ' + d.name + ' 歷史走勢';
+      Plotly.newPlot('weightChart', [{
+        x: d.dates, y: d.weights, mode: 'lines+markers',
+        line: { color: '#16a085', width: 3 },
+        name: '權重'
+      }], {
+        title: '權重 (%)', hovermode: 'x unified',
+        margin: { t: 40, b: 40, l: 60, r: 20 }
+      });
+      Plotly.newPlot('sharesChart', [{
+        x: d.dates, y: d.shares, mode: 'lines+markers',
+        line: { color: '#3498db', width: 3 },
+        name: '股數'
+      }], {
+        title: '持有股數', hovermode: 'x unified',
+        margin: { t: 40, b: 40, l: 80, r: 20 }
+      });
+    }
+  </script>
+</body>
+</html>

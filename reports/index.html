@@ -76,229 +76,39 @@ tr:hover { background: #fafbfc; }
 .text-up   { color: #c0392b; font-weight: 600; }
 .text-down { color: #16a085; font-weight: 600; }
 .footer { margin-top: 20px; color: #95a5a6; font-size: 12px; text-align: right; }
-</style>
+
+    .watchlist-widget {
+      background: #fefce8; border: 1px solid #fde68a;
+      border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;
+    }
+    .watchlist-widget h2 { margin-top: 0; color: #92400e; }
+    .watch-item {
+      padding: 8px 0; border-bottom: 1px dashed #fde68a;
+    }
+    .watch-item:last-child { border-bottom: none; }
+    .watch-item .stock { font-weight: bold; }
+    .watch-item .alerts {
+      font-size: 0.9em; color: #555; margin-top: 4px;
+    }
+    .watch-item.has-alert { color: #991b1b; }
+    .watch-item.no-alert { color: #6b7280; }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="header-bar">
       <h1>📈 台灣主動式 ETF 持股監控</h1>
-      <a class="nav-link" href="exposure.html">跨 ETF 曝險強度 →</a>
+      <span>
+        <a class="nav-link" href="exposure.html">跨 ETF 曝險強度 →</a>
+        &nbsp;|&nbsp;
+        <a class="nav-link" href="stocks/index.html">所有股票 →</a>
+      </span>
     </div>
     <div class="meta" style="margin-bottom: 20px;">
-      追蹤 23 檔 ETF（其中 8 檔正常更新）
+      追蹤 5 檔 ETF（其中 3 檔正常更新）
     </div>
     
-          <h2>中國信託投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00983A</strong></td>
-                <td>中信ARK創新</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00995A</strong></td>
-                <td>中信台灣卓越成長</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>元大投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00990A</strong></td>
-                <td>元大全球AI新經濟</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>兆豐投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00996A</strong></td>
-                <td>兆豐台灣豐收</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>台新投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00986A</strong></td>
-                <td>台新全球龍頭成長</td>
-                <td><span class='badge badge-flat'>無異動</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"><a href='00986A.html' class='nav-link'>查看 →</a></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00987A</strong></td>
-                <td>台新臺灣優勢成長</td>
-                <td><span class='badge badge-flat'>無異動</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"><a href='00987A.html' class='nav-link'>查看 →</a></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>國泰投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00400A</strong></td>
-                <td>國泰台股動能高息</td>
-                <td><span class='badge badge-up'>7 筆異動</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"><a href='00400A.html' class='nav-link'>查看 →</a></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>安聯投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00984A</strong></td>
-                <td>安聯台灣高息成長</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00993A</strong></td>
-                <td>安聯台灣</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>復華投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00991A</strong></td>
-                <td>復華台灣未來50</td>
-                <td><span class='badge badge-up'>4 筆異動</span></td>
-                <td>2026-04-19 11:20</td>
-                <td class="text-end"><a href='00991A.html' class='nav-link'>查看 →</a></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00998A</strong></td>
-                <td>復華全球金融股票入息</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>摩根投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00401A</strong></td>
-                <td>摩根台灣鑫收益</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00989A</strong></td>
-                <td>摩根大美國領先科技</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
-          <h2>第一金投信</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>代號</th><th>名稱</th><th>今日狀態</th>
-                <th>最後更新</th><th class="text-end"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>00994A</strong></td>
-                <td>第一金台股趨勢優選</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
-              </tr>
-            </tbody>
-          </table>
-        
+    
           <h2>統一投信</h2>
           <table>
             <thead>
@@ -312,24 +122,8 @@ tr:hover { background: #fafbfc; }
                 <td><strong>00981A</strong></td>
                 <td>統一台股增長</td>
                 <td><span class='badge badge-flat'>無異動</span></td>
-                <td>2026-04-19 11:20</td>
+                <td>2026-04-19</td>
                 <td class="text-end"><a href='00981A.html' class='nav-link'>查看 →</a></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00403A</strong></td>
-                <td>統一台股升級50</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:20</td>
-                <td class="text-end"></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00988A</strong></td>
-                <td>統一全球創新</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
-                <td class="text-end"></td>
               </tr>
             </tbody>
           </table>
@@ -346,24 +140,16 @@ tr:hover { background: #fafbfc; }
               <tr>
                 <td><strong>00982A</strong></td>
                 <td>群益台灣精選強棒</td>
-                <td><span class='badge badge-flat'>無異動</span></td>
-                <td>2026-04-19 11:20</td>
-                <td class="text-end"><a href='00982A.html' class='nav-link'>查看 →</a></td>
+                <td><span class='badge badge-exit'>抓取失敗</span></td>
+                <td>2026-04-19</td>
+                <td class="text-end"><span class='meta' title='Connection timeout'>⚠️</span></td>
               </tr>
             
               <tr>
                 <td><strong>00992A</strong></td>
                 <td>群益台灣科技創新</td>
                 <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:20</td>
-                <td class="text-end"></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00997A</strong></td>
-                <td>群益美國增長</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:21</td>
+                <td>-</td>
                 <td class="text-end"></td>
               </tr>
             </tbody>
@@ -381,30 +167,22 @@ tr:hover { background: #fafbfc; }
               <tr>
                 <td><strong>00980A</strong></td>
                 <td>野村臺灣智慧優選</td>
-                <td><span class='badge badge-flat'>無異動</span></td>
-                <td>2026-04-19 11:20</td>
+                <td><span class='badge badge-up'>3 筆異動</span></td>
+                <td>2026-04-19</td>
                 <td class="text-end"><a href='00980A.html' class='nav-link'>查看 →</a></td>
               </tr>
             
               <tr>
                 <td><strong>00985A</strong></td>
                 <td>野村台灣增強50</td>
-                <td><span class='badge badge-up'>27 筆異動</span></td>
-                <td>2026-04-19 11:20</td>
+                <td><span class='badge badge-flat'>無異動</span></td>
+                <td>2026-04-19</td>
                 <td class="text-end"><a href='00985A.html' class='nav-link'>查看 →</a></td>
-              </tr>
-            
-              <tr>
-                <td><strong>00999A</strong></td>
-                <td>野村臺灣策略高息</td>
-                <td><span class='badge badge-flat'>未啟用</span></td>
-                <td>2026-04-19 11:20</td>
-                <td class="text-end"></td>
               </tr>
             </tbody>
           </table>
         
-    <div class="footer">產生時間 2026-04-19 11:21:20</div>
+    <div class="footer">產生時間 2026-04-19 11:42:56</div>
   </div>
 </body>
 </html>

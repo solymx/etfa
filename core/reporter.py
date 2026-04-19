@@ -219,9 +219,53 @@ def generate_daily_report(
 # 首頁索引
 # ============================================================================
 
+
+def _render_watchlist_widget(watchlist_alerts: list[dict] | None) -> str:
+    """產 watchlist 的 HTML widget。沒有 watchlist 時回空字串。"""
+    if not watchlist_alerts:
+        return ""
+
+    items_html = []
+    for w in watchlist_alerts:
+        code = w["code"]
+        name = w["name"]
+        note = w.get("note", "")
+        alerts = w.get("alerts", [])
+
+        if alerts:
+            alerts_html = " · ".join(
+                f"<strong>{a['etf']}</strong> {a['status']}"
+                + (f" ({a['weight']:.2f}%)" if a.get("weight") else "")
+                for a in alerts
+            )
+            cls = "has-alert"
+            icon = "⚠️"
+            alert_text = f"<div class='alerts'>{alerts_html}</div>"
+        else:
+            cls = "no-alert"
+            icon = "✓"
+            alert_text = "<div class='alerts'>無異動</div>"
+
+        note_html = f" <small>({note})</small>" if note else ""
+        items_html.append(f"""
+          <div class="watch-item {cls}">
+            <span class="stock">{icon} <a href="stocks/{code}.html">{code} {name}</a>{note_html}</span>
+            {alert_text}
+          </div>
+        """)
+
+    return f"""
+    <div class="watchlist-widget">
+      <h2>🌟 我的關心清單</h2>
+      {''.join(items_html)}
+    </div>
+    """
+
+
 def generate_index(
     etf_summaries: list[dict],
     output_path: Path,
+    watchlist_alerts: list[dict] | None = None,
 ) -> None:
     """產出首頁索引 HTML。
 
@@ -229,6 +273,8 @@ def generate_index(
         etf_summaries: 每筆元素為 dict，至少包含：
             code, name, issuer, category, status (success/failed/disabled),
             num_changes, error (如果 failed), last_update
+        watchlist_alerts: 關心清單今日狀況，每筆包含：
+            {code, name, note, alerts: [{etf, status, weight, diff}, ...]}
     """
     # 按 issuer 分組
     groups: dict[str, list[dict]] = {}
@@ -286,17 +332,38 @@ def generate_index(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>台灣主動式 ETF 持股監控</title>
-  <style>{_CSS}</style>
+  <style>{_CSS}
+    .watchlist-widget {{
+      background: #fefce8; border: 1px solid #fde68a;
+      border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;
+    }}
+    .watchlist-widget h2 {{ margin-top: 0; color: #92400e; }}
+    .watch-item {{
+      padding: 8px 0; border-bottom: 1px dashed #fde68a;
+    }}
+    .watch-item:last-child {{ border-bottom: none; }}
+    .watch-item .stock {{ font-weight: bold; }}
+    .watch-item .alerts {{
+      font-size: 0.9em; color: #555; margin-top: 4px;
+    }}
+    .watch-item.has-alert {{ color: #991b1b; }}
+    .watch-item.no-alert {{ color: #6b7280; }}
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="header-bar">
       <h1>📈 台灣主動式 ETF 持股監控</h1>
-      <a class="nav-link" href="exposure.html">跨 ETF 曝險強度 →</a>
+      <span>
+        <a class="nav-link" href="exposure.html">跨 ETF 曝險強度 →</a>
+        &nbsp;|&nbsp;
+        <a class="nav-link" href="stocks/index.html">所有股票 →</a>
+      </span>
     </div>
     <div class="meta" style="margin-bottom: 20px;">
       追蹤 {len(etf_summaries)} 檔 ETF（其中 {sum(1 for s in etf_summaries if s['status']=='success')} 檔正常更新）
     </div>
+    {_render_watchlist_widget(watchlist_alerts)}
     {''.join(sections_html)}
     <div class="footer">產生時間 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
   </div>

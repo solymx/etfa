@@ -24,7 +24,7 @@ from pathlib import Path
 
 import yaml
 
-from core import analyzer, changelog, comparator, exposure, reporter, storage
+from core import analyzer, changelog, comparator, exposure, reporter, stock_pages, storage
 from core.exceptions import NoDataError
 from core.fetchers import get_fetcher
 
@@ -169,6 +169,114 @@ def process_one(
 # 主流程
 # ============================================================================
 
+
+def _compute_watchlist_alerts(
+    watchlist: list[dict],
+    enabled_etfs: list[dict],
+    data_dir: Path,
+    backup_suffix: str,
+) -> list[dict]:
+    """計算關心清單每支股票在各 ETF 的今日異動狀況。
+
+    Returns:
+        [{code, name, note, alerts: [{etf, status, weight, diff}, ...]}, ...]
+    """
+    import pandas as pd
+
+    # 對每檔 ETF 建立 { 股票代號: (狀態, 權重, 股數變化) } 的 map
+    etf_states = {}  # etf_code → {stock_code: (status, weight, diff)}
+
+    for etf in enabled_etfs:
+        code = etf["code"]
+        main_csv = data_dir / f"{code}.csv"
+        backup_dir = data_dir / f"{code}{backup_suffix}"
+        if not main_csv.exists():
+            continue
+
+        # 找最接近的前一日 backup（去掉今天/未來）
+        backups = sorted(backup_dir.glob("*.csv")) if backup_dir.exists() else []
+        prev_backup = None
+        today_backup = None
+        if backups:
+            # 最新的可能是「今天」的 backup，倒數第二個才是「前一日」
+            if len(backups) >= 2:
+                prev_backup = backups[-2]
+            today_backup = backups[-1]
+
+        try:
+            df_new = pd.read_csv(main_csv, dtype={"股票代號": str})
+        except Exception:
+            continue
+
+        old_shares = {}
+        if prev_backup:
+            try:
+                df_old = pd.read_csv(prev_backup, dtype={"股票代號": str})
+                old_shares = dict(
+                    zip(df_old["股票代號"], df_old["股數"].astype(float))
+                )
+            except Exception:
+                pass
+
+        new_shares_map = dict(
+            zip(df_new["股票代號"], df_new["股數"].astype(float))
+        )
+        weights = dict(
+            zip(df_new["股票代號"], df_new["權重"].astype(float))
+        )
+
+        states = {}
+        for sc, curr in new_shares_map.items():
+            prev = old_shares.get(sc, 0)
+            diff = curr - prev
+            if prev == 0:
+                status = "🆕 新進"
+            elif diff > 0:
+                status = "📈 加碼"
+            elif diff < 0:
+                status = "📉 減碼"
+            else:
+                status = "持平"
+            states[sc] = (status, weights.get(sc, 0), int(diff))
+
+        # 清倉（舊有新無）
+        for sc, shares in old_shares.items():
+            if sc not in new_shares_map and shares > 0:
+                states[sc] = ("❌ 清倉", 0, int(-shares))
+
+        etf_states[code] = states
+
+    # 為每支關心股票蒐集在各 ETF 的狀況
+    result = []
+    for w in watchlist:
+        stock_code = w["code"]
+        alerts = []
+        for etf in enabled_etfs:
+            etf_code = etf["code"]
+            states = etf_states.get(etf_code, {})
+            if stock_code not in states:
+                continue
+            status, weight, diff = states[stock_code]
+            # 只列「有異動」的（持平不列）
+            if status == "持平":
+                continue
+            alerts.append({
+                "etf": etf_code,
+                "status": status,
+                "weight": weight,
+                "diff": diff,
+            })
+
+        result.append({
+            "code": stock_code,
+            "name": w.get("name", stock_code),
+            "note": w.get("note", ""),
+            "alerts": alerts,
+        })
+
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description="monitor_etf_tw")
     parser.add_argument("--only", help="只跑指定 ETF 代號")
@@ -214,11 +322,25 @@ def main():
         )
         summaries.append(s)
 
-    # ====== 產首頁 & 曝險報表 ======
+    # ====== 產首頁 & 曝險報表 & 股票頁 ======
     if not args.skip_index:
         print("\n" + "=" * 60)
+
+        # 讀取關心清單（若有）
+        watchlist = cfg.get("watchlist") or []
+
+        # 計算 watchlist alerts：看今天每支關心股票在各 ETF 的狀況
+        watchlist_alerts = _compute_watchlist_alerts(
+            watchlist, [e for e in etfs if e.get("enabled", True)],
+            data_dir, backup_suffix,
+        ) if watchlist else []
+
         print("📄 產生首頁索引...")
-        reporter.generate_index(summaries, reports_dir / "index.html")
+        reporter.generate_index(
+            summaries,
+            reports_dir / "index.html",
+            watchlist_alerts=watchlist_alerts,
+        )
 
         print("🎯 計算跨 ETF 曝險強度...")
         successful = [
@@ -231,6 +353,16 @@ def main():
                 successful, data_dir, reports_dir / "exposure.html"
             )
             print(f"   ✅ 彙總 {len(successful)} 檔 ETF 的曝險資料")
+
+        # 產每支股票的專屬頁面
+        print("📋 產生每支股票的專屬頁面...")
+        enabled_etfs = [e for e in etfs if e.get("enabled", True)]
+        page_result = stock_pages.generate_all_stock_pages(
+            enabled_etfs, data_dir, reports_dir,
+            backup_suffix=backup_suffix,
+            watchlist=watchlist,
+        )
+        print(f"   ✅ 產生 {page_result['num_stocks']} 支股票頁")
 
     # ====== 總結 ======
     print("\n" + "=" * 60)
