@@ -4,7 +4,7 @@ on:
   schedule:
     # 台灣時間每天 17:30（UTC 09:30）執行
     # 投信通常 15:00-17:00 之間會把當日持股揭露出來
-    - cron: "30 9 * * *"
+    - cron: "45 8 * * *"
   workflow_dispatch:  # 允許手動觸發
     inputs:
       only:
