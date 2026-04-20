@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><title>00985A 野村台灣增強50 · 歷史趨勢</title>
-<style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>00985A 野村台灣增強50 · 歷史趨勢</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <style>
+    
 * { box-sizing: border-box; }
 body {
   background: #f5f7fa;
@@ -73,11 +78,96 @@ tr:hover { background: #fafbfc; }
 .text-up   { color: #c0392b; font-weight: 600; }
 .text-down { color: #16a085; font-weight: 600; }
 .footer { margin-top: 20px; color: #95a5a6; font-size: 12px; text-align: right; }
-</style></head>
-<body><div class="container">
-  <div class="header-bar">
-    <h1>📈 00985A 野村台灣增強50 · 歷史趨勢</h1>
-    <a class="nav-link" href="index.html">← 回首頁</a>
+
+    .tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 14px; background: #f8f9fa; border-radius: 8px; margin: 16px 0;
+    }
+    .tag {
+      padding: 5px 12px; background: #fff; border: 1px solid #ddd;
+      border-radius: 20px; cursor: pointer; font-size: 13px;
+    }
+    .tag:hover { background: #3498db; color: #fff; border-color: #3498db; }
+    .tag.active { background: #3498db; color: #fff; border-color: #3498db; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .placeholder {
+      text-align: center; padding: 50px; color: #95a5a6;
+      border: 2px dashed #dfe4ea; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+      <div>
+        <h1>📈 00985A 野村台灣增強50 · 歷史趨勢</h1>
+        <div class="meta">
+          2 筆歷史快照 ·
+          對比期間 2026-04-19 → 2026-04-20
+          （1 天）
+        </div>
+      </div>
+      <div>
+        <a class="nav-link" href="00985A.html">日報</a>
+        <a class="nav-link" href="index.html">首頁</a>
+      </div>
+    </div>
+
+    <h2>🔄 重點變動</h2>
+    <div class="grid">
+      <div>
+        <h3 style="color:#c0392b;">📈 加碼 Top 10</h3>
+        <table><thead><tr><th>代號</th><th>名稱</th><th class='text-end'>權重變動</th><th class='text-end'>目前權重</th></tr></thead><tbody><tr><td>3653</td><td>健策精密工業</td><td class='text-end text-up'>+4.46%</td><td class='text-end'>4.46%</td></tr><tr><td>8046</td><td>南亞電路板</td><td class='text-end text-up'>+4.26%</td><td class='text-end'>4.26%</td></tr><tr><td>3665</td><td>貿聯控股（BizLink Holding In</td><td class='text-end text-up'>+3.96%</td><td class='text-end'>3.96%</td></tr><tr><td>3017</td><td>奇鋐科技</td><td class='text-end text-up'>+3.80%</td><td class='text-end'>3.80%</td></tr><tr><td>6789</td><td>采鈺科技</td><td class='text-end text-up'>+3.59%</td><td class='text-end'>3.59%</td></tr><tr><td>3105</td><td>穩懋半導體</td><td class='text-end text-up'>+3.46%</td><td class='text-end'>3.46%</td></tr><tr><td>6805</td><td>富世達</td><td class='text-end text-up'>+3.07%</td><td class='text-end'>3.07%</td></tr><tr><td>3189</td><td>景碩科技</td><td class='text-end text-up'>+2.97%</td><td class='text-end'>2.97%</td></tr><tr><td>2368</td><td>金像電子（股）公司</td><td class='text-end text-up'>+2.68%</td><td class='text-end'>2.68%</td></tr><tr><td>6223</td><td>旺矽科技</td><td class='text-end text-up'>+2.42%</td><td class='text-end'>2.42%</td></tr></tbody></table>
+      </div>
+      <div>
+        <h3 style="color:#16a085;">📉 減碼 Top 10</h3>
+        <table><thead><tr><th>代號</th><th>名稱</th><th class='text-end'>權重變動</th><th class='text-end'>目前權重</th></tr></thead><tbody><tr><td>2454</td><td>聯發科技</td><td class='text-end text-down'>-11.66%</td><td class='text-end'>2.34%</td></tr><tr><td>2317</td><td>鴻海精密工業</td><td class='text-end text-down'>-10.75%</td><td class='text-end'>0.25%</td></tr><tr><td>2308</td><td>台達電子工業</td><td class='text-end text-down'>-6.32%</td><td class='text-end'>3.18%</td></tr><tr><td>2330</td><td>台灣積體電路製造</td><td class='text-end text-down'>-3.77%</td><td class='text-end'>24.23%</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 32px;">📊 單股歷史走勢</h2>
+    <p class="meta">點選個股查看權重與股數變化</p>
+    <div class="tags"><div class="tag" onclick='showTrend("2330", this)'>2330 台灣積體電路製造</div><div class="tag" onclick='showTrend("3653", this)'>3653 健策精密工業</div><div class="tag" onclick='showTrend("8046", this)'>8046 南亞電路板</div><div class="tag" onclick='showTrend("3665", this)'>3665 貿聯控股（BizLink Holding In</div><div class="tag" onclick='showTrend("3017", this)'>3017 奇鋐科技</div><div class="tag" onclick='showTrend("6789", this)'>6789 采鈺科技</div><div class="tag" onclick='showTrend("3105", this)'>3105 穩懋半導體</div><div class="tag" onclick='showTrend("2308", this)'>2308 台達電子工業</div><div class="tag" onclick='showTrend("6805", this)'>6805 富世達</div><div class="tag" onclick='showTrend("3189", this)'>3189 景碩科技</div><div class="tag" onclick='showTrend("2368", this)'>2368 金像電子（股）公司</div><div class="tag" onclick='showTrend("6223", this)'>6223 旺矽科技</div><div class="tag" onclick='showTrend("2454", this)'>2454 聯發科技</div><div class="tag" onclick='showTrend("3529", this)'>3529 力旺電子</div><div class="tag" onclick='showTrend("2345", this)'>2345 智邦科技</div><div class="tag" onclick='showTrend("2059", this)'>2059 川湖科技</div><div class="tag" onclick='showTrend("2360", this)'>2360 致茂電子</div><div class="tag" onclick='showTrend("6442", this)'>6442 光紅建聖</div><div class="tag" onclick='showTrend("8299", this)'>8299 群聯電子</div><div class="tag" onclick='showTrend("2383", this)'>2383 台光電子材料</div><div class="tag" onclick='showTrend("3661", this)'>3661 世芯電子</div><div class="tag" onclick='showTrend("7769", this)'>7769 鴻勁精密</div><div class="tag" onclick='showTrend("8996", this)'>8996 高力熱處理工業</div><div class="tag" onclick='showTrend("2344", this)'>2344 華邦電子</div><div class="tag" onclick='showTrend("6515", this)'>6515 穎崴科技</div><div class="tag" onclick='showTrend("1477", this)'>1477 聚陽實業</div><div class="tag" onclick='showTrend("3533", this)'>3533 嘉澤端子工業</div><div class="tag" onclick='showTrend("2412", this)'>2412 中華電信</div><div class="tag" onclick='showTrend("6669", this)'>6669 緯穎科技服務</div><div class="tag" onclick='showTrend("6781", this)'>6781 AES Holding Co Ltd</div><div class="tag" onclick='showTrend("3711", this)'>3711 日月光投資控股</div><div class="tag" onclick='showTrend("4749", this)'>4749 新應材</div><div class="tag" onclick='showTrend("2408", this)'>2408 南亞科技</div><div class="tag" onclick='showTrend("2395", this)'>2395 研華</div><div class="tag" onclick='showTrend("3037", this)'>3037 欣興電子</div><div class="tag" onclick='showTrend("6488", this)'>6488 環球晶圓</div><div class="tag" onclick='showTrend("8210", this)'>8210 勤誠興業</div><div class="tag" onclick='showTrend("1216", this)'>1216 統一企業</div><div class="tag" onclick='showTrend("3293", this)'>3293 鈊象電子</div><div class="tag" onclick='showTrend("4958", this)'>4958 臻鼎科技控股</div><div class="tag" onclick='showTrend("2881", this)'>2881 富邦金融控股</div><div class="tag" onclick='showTrend("2317", this)'>2317 鴻海精密工業</div><div class="tag" onclick='showTrend("3264", this)'>3264 欣銓科技</div><div class="tag" onclick='showTrend("6239", this)'>6239 力成科技</div><div class="tag" onclick='showTrend("4904", this)'>4904 遠傳電信</div><div class="tag" onclick='showTrend("6415", this)'>6415 矽力杰</div><div class="tag" onclick='showTrend("1519", this)'>1519 華城電機</div><div class="tag" onclick='showTrend("1605", this)'>1605 華新麗華</div><div class="tag" onclick='showTrend("2382", this)'>2382 廣達電腦</div><div class="tag" onclick='showTrend("2891", this)'>2891 中國信託金融控股</div></div>
+    <div id="placeholder" class="placeholder">👆 請點選上方個股</div>
+    <div id="charts" style="display:none;">
+      <h3 id="chartTitle"></h3>
+      <div id="weightChart"></div>
+      <div id="sharesChart" style="margin-top: 20px;"></div>
+    </div>
+
+    <div class="footer">
+      產生時間 2026-04-20 09:41:47
+    </div>
   </div>
-  <p>需要至少 2 筆歷史快照才能分析趨勢。目前有 1 筆快照，請等系統累積幾天的資料後再來看。</p>
-</div></body></html>
+
+  <script>
+    const trendData = {"1216": {"name": "統一企業", "dates": ["2026-04-20"], "weights": [0.29], "shares": [378000]}, "1477": {"name": "聚陽實業", "dates": ["2026-04-20"], "weights": [1.02], "shares": [433000]}, "1519": {"name": "華城電機", "dates": ["2026-04-20"], "weights": [0.07], "shares": [8000]}, "1605": {"name": "華新麗華", "dates": ["2026-04-20"], "weights": [0.05], "shares": [150000]}, "2059": {"name": "川湖科技", "dates": ["2026-04-20"], "weights": [2.15], "shares": [55000]}, "2308": {"name": "台達電子工業", "dates": ["2026-04-19", "2026-04-20"], "weights": [9.5, 3.18], "shares": [400000, 160000]}, "2317": {"name": "鴻海精密工業", "dates": ["2026-04-19", "2026-04-20"], "weights": [11.0, 0.25], "shares": [900000, 117000]}, "2330": {"name": "台灣積體電路製造", "dates": ["2026-04-19", "2026-04-20"], "weights": [28.0, 24.23], "shares": [1500000, 1144000]}, "2344": {"name": "華邦電子", "dates": ["2026-04-20"], "weights": [1.2], "shares": [1336000]}, "2345": {"name": "智邦科技", "dates": ["2026-04-20"], "weights": [2.24], "shares": [107000]}, "2360": {"name": "致茂電子", "dates": ["2026-04-20"], "weights": [2.14], "shares": [100000]}, "2368": {"name": "金像電子（股）公司", "dates": ["2026-04-20"], "weights": [2.68], "shares": [212000]}, "2382": {"name": "廣達電腦", "dates": ["2026-04-20"], "weights": [0.05], "shares": [14000]}, "2383": {"name": "台光電子材料", "dates": ["2026-04-20"], "weights": [1.49], "shares": [37000]}, "2395": {"name": "研華", "dates": ["2026-04-20"], "weights": [0.4], "shares": [104000]}, "2408": {"name": "南亞科技", "dates": ["2026-04-20"], "weights": [0.48], "shares": [221000]}, "2412": {"name": "中華電信", "dates": ["2026-04-20"], "weights": [0.8], "shares": [561000]}, "2454": {"name": "聯發科技", "dates": ["2026-04-19", "2026-04-20"], "weights": [14.0, 2.34], "shares": [600000, 118000]}, "2881": {"name": "富邦金融控股", "dates": ["2026-04-20"], "weights": [0.25], "shares": [278000]}, "2891": {"name": "中國信託金融控股", "dates": ["2026-04-20"], "weights": [0.05], "shares": [89000]}, "3017": {"name": "奇鋐科技", "dates": ["2026-04-20"], "weights": [3.8], "shares": [146000]}, "3037": {"name": "欣興電子", "dates": ["2026-04-20"], "weights": [0.38], "shares": [53000]}, "3105": {"name": "穩懋半導體", "dates": ["2026-04-20"], "weights": [3.46], "shares": [559000]}, "3189": {"name": "景碩科技", "dates": ["2026-04-20"], "weights": [2.97], "shares": [659000]}, "3264": {"name": "欣銓科技", "dates": ["2026-04-20"], "weights": [0.24], "shares": [122000]}, "3293": {"name": "鈊象電子", "dates": ["2026-04-20"], "weights": [0.28], "shares": [34000]}, "3529": {"name": "力旺電子", "dates": ["2026-04-20"], "weights": [2.25], "shares": [49000]}, "3533": {"name": "嘉澤端子工業", "dates": ["2026-04-20"], "weights": [0.96], "shares": [35000]}, "3653": {"name": "健策精密工業", "dates": ["2026-04-20"], "weights": [4.46], "shares": [85000]}, "3661": {"name": "世芯電子", "dates": ["2026-04-20"], "weights": [1.48], "shares": [39000]}, "3665": {"name": "貿聯控股（BizLink Holding In", "dates": ["2026-04-20"], "weights": [3.96], "shares": [154000]}, "3711": {"name": "日月光投資控股", "dates": ["2026-04-20"], "weights": [0.59], "shares": [123000]}, "4749": {"name": "新應材", "dates": ["2026-04-20"], "weights": [0.59], "shares": [57000]}, "4904": {"name": "遠傳電信", "dates": ["2026-04-20"], "weights": [0.19], "shares": [186000]}, "4958": {"name": "臻鼎科技控股", "dates": ["2026-04-20"], "weights": [0.25], "shares": [77000]}, "6223": {"name": "旺矽科技", "dates": ["2026-04-20"], "weights": [2.42], "shares": [45000]}, "6239": {"name": "力成科技", "dates": ["2026-04-20"], "weights": [0.21], "shares": [98000]}, "6415": {"name": "矽力杰", "dates": ["2026-04-20"], "weights": [0.12], "shares": [32000]}, "6442": {"name": "光紅建聖", "dates": ["2026-04-20"], "weights": [1.59], "shares": [64000]}, "6488": {"name": "環球晶圓", "dates": ["2026-04-20"], "weights": [0.37], "shares": [65000]}, "6515": {"name": "穎崴科技", "dates": ["2026-04-20"], "weights": [1.13], "shares": [10000]}, "6669": {"name": "緯穎科技服務", "dates": ["2026-04-20"], "weights": [0.79], "shares": [19000]}, "6781": {"name": "AES Holding Co Ltd", "dates": ["2026-04-20"], "weights": [0.73], "shares": [69000]}, "6789": {"name": "采鈺科技", "dates": ["2026-04-20"], "weights": [3.59], "shares": [725000]}, "6805": {"name": "富世達", "dates": ["2026-04-20"], "weights": [3.07], "shares": [155000]}, "7769": {"name": "鴻勁精密", "dates": ["2026-04-20"], "weights": [1.3], "shares": [28000]}, "8046": {"name": "南亞電路板", "dates": ["2026-04-20"], "weights": [4.26], "shares": [512000]}, "8210": {"name": "勤誠興業", "dates": ["2026-04-20"], "weights": [0.34], "shares": [32000]}, "8299": {"name": "群聯電子", "dates": ["2026-04-20"], "weights": [1.57], "shares": [92000]}, "8996": {"name": "高力熱處理工業", "dates": ["2026-04-20"], "weights": [1.2], "shares": [96000]}};
+    function showTrend(code, el) {
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('placeholder').style.display = 'none';
+      document.getElementById('charts').style.display = 'block';
+      const d = trendData[code];
+      document.getElementById('chartTitle').innerText =
+        code + ' ' + d.name + ' 歷史走勢';
+      Plotly.newPlot('weightChart', [{
+        x: d.dates, y: d.weights, mode: 'lines+markers',
+        line: { color: '#16a085', width: 3 },
+        name: '權重'
+      }], {
+        title: '權重 (%)', hovermode: 'x unified',
+        margin: { t: 40, b: 40, l: 60, r: 20 }
+      });
+      Plotly.newPlot('sharesChart', [{
+        x: d.dates, y: d.shares, mode: 'lines+markers',
+        line: { color: '#3498db', width: 3 },
+        name: '股數'
+      }], {
+        title: '持有股數', hovermode: 'x unified',
+        margin: { t: 40, b: 40, l: 80, r: 20 }
+      });
+    }
+  </script>
+</body>
+</html>

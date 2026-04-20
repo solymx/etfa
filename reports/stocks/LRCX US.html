@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>LRCX US 科林研發股份有限公司 - 跨 ETF 持股追蹤</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+* { box-sizing: border-box; }
+body {
+  background: #f5f7fa;
+  font-family: "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2c3e50;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+h1, h2 { margin: 0 0 16px 0; }
+h1 { font-size: 24px; }
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #eef2f7;
+}
+.meta { color: #7f8c8d; font-size: 13px; }
+.nav-link {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #ecf0f1;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #34495e;
+  font-size: 13px;
+}
+.nav-link:hover { background: #dfe6e9; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: #34495e;
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+td { padding: 10px 12px; border-bottom: 1px solid #ecf0f1; }
+tr:hover { background: #fafbfc; }
+.text-end { text-align: right; font-variant-numeric: tabular-nums; }
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-new   { background: #e74c3c; }
+.badge-up    { background: #e67e22; }
+.badge-down  { background: #27ae60; }
+.badge-exit  { background: #95a5a6; }
+.badge-flat  { background: #bdc3c7; }
+.badge-first { background: #3498db; }
+.text-up   { color: #c0392b; font-weight: 600; }
+.text-down { color: #16a085; font-weight: 600; }
+.footer { margin-top: 20px; color: #95a5a6; font-size: 12px; text-align: right; }
+
+  <style>
+    .badge-watchlist { background: #fde68a; color: #92400e; }
+    .chart-container { max-width: 900px; margin: 2rem auto; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="../index.html">← 首頁</a> ·
+      <a href="index.html">所有股票</a>
+    </nav>
+
+    <h1>
+      LRCX US 科林研發股份有限公司
+      
+    </h1>
+    <p class="meta">
+      今日被 <strong>1</strong> 檔 ETF 持有
+      · 異動 <strong>0</strong> 筆
+      · 更新時間 2026-04-20 09:42
+    </p>
+
+    <h2>📊 各 ETF 當前持股</h2>
+    
+    
+    <table class="holdings-table">
+      <thead>
+        <tr>
+          <th>ETF</th>
+          <th>名稱</th>
+          <th>今日狀態</th>
+          <th class="text-end">持有股數</th>
+          <th class="text-end">較上次增減</th>
+          <th class="text-end">權重</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><a href="../00986A.html">00986A</a></td>
+          <td>台新全球龍頭成長</td>
+          <td><span class="badge badge-flat">持平</span></td>
+          <td class="text-end">2,021</td>
+          <td class="text-end"></td>
+          <td class="text-end">2.79%</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+
+    <h2>📈 權重歷史趨勢</h2>
+    <div class="chart-container">
+      <canvas id="weightChart"></canvas>
+    </div>
+
+    <footer class="footer">
+      <small>
+        資料來源：各投信官方揭露 · 本頁自動產生，不構成投資建議
+      </small>
+    </footer>
+  </div>
+
+  <script>
+    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20"], "datasets": [{"label": "00986A", "data": [2.6953, 2.7936], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "LRCX US 科林研發股份有限公司 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    new Chart(document.getElementById('weightChart'), config);
+  </script>
+</body>
+</html>

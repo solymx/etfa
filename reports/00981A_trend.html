@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><title>00981A 統一台股增長 · 歷史趨勢</title>
-<style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>00981A 統一台股增長 · 歷史趨勢</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <style>
+    
 * { box-sizing: border-box; }
 body {
   background: #f5f7fa;
@@ -73,11 +78,96 @@ tr:hover { background: #fafbfc; }
 .text-up   { color: #c0392b; font-weight: 600; }
 .text-down { color: #16a085; font-weight: 600; }
 .footer { margin-top: 20px; color: #95a5a6; font-size: 12px; text-align: right; }
-</style></head>
-<body><div class="container">
-  <div class="header-bar">
-    <h1>📈 00981A 統一台股增長 · 歷史趨勢</h1>
-    <a class="nav-link" href="index.html">← 回首頁</a>
+
+    .tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 14px; background: #f8f9fa; border-radius: 8px; margin: 16px 0;
+    }
+    .tag {
+      padding: 5px 12px; background: #fff; border: 1px solid #ddd;
+      border-radius: 20px; cursor: pointer; font-size: 13px;
+    }
+    .tag:hover { background: #3498db; color: #fff; border-color: #3498db; }
+    .tag.active { background: #3498db; color: #fff; border-color: #3498db; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .placeholder {
+      text-align: center; padding: 50px; color: #95a5a6;
+      border: 2px dashed #dfe4ea; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+      <div>
+        <h1>📈 00981A 統一台股增長 · 歷史趨勢</h1>
+        <div class="meta">
+          2 筆歷史快照 ·
+          對比期間 2026-04-19 → 2026-04-20
+          （1 天）
+        </div>
+      </div>
+      <div>
+        <a class="nav-link" href="00981A.html">日報</a>
+        <a class="nav-link" href="index.html">首頁</a>
+      </div>
+    </div>
+
+    <h2>🔄 重點變動</h2>
+    <div class="grid">
+      <div>
+        <h3 style="color:#c0392b;">📈 加碼 Top 10</h3>
+        <table><thead><tr><th>代號</th><th>名稱</th><th class='text-end'>權重變動</th><th class='text-end'>目前權重</th></tr></thead><tbody><tr><td>2383</td><td>台光電</td><td class='text-end text-up'>+7.15%</td><td class='text-end'>7.15%</td></tr><tr><td>3653</td><td>健策</td><td class='text-end text-up'>+6.27%</td><td class='text-end'>6.27%</td></tr><tr><td>2368</td><td>金像電</td><td class='text-end text-up'>+5.29%</td><td class='text-end'>5.29%</td></tr><tr><td>3665</td><td>貿聯-KY</td><td class='text-end text-up'>+5.26%</td><td class='text-end'>5.26%</td></tr><tr><td>3017</td><td>奇鋐</td><td class='text-end text-up'>+5.23%</td><td class='text-end'>5.23%</td></tr><tr><td>6223</td><td>旺矽</td><td class='text-end text-up'>+5.01%</td><td class='text-end'>5.01%</td></tr><tr><td>8046</td><td>南電</td><td class='text-end text-up'>+4.06%</td><td class='text-end'>4.06%</td></tr><tr><td>5274</td><td>信驊</td><td class='text-end text-up'>+3.00%</td><td class='text-end'>3.00%</td></tr><tr><td>2327</td><td>國巨*</td><td class='text-end text-up'>+2.67%</td><td class='text-end'>2.67%</td></tr><tr><td>6515</td><td>穎崴</td><td class='text-end text-up'>+2.20%</td><td class='text-end'>2.20%</td></tr></tbody></table>
+      </div>
+      <div>
+        <h3 style="color:#16a085;">📉 減碼 Top 10</h3>
+        <table><thead><tr><th>代號</th><th>名稱</th><th class='text-end'>權重變動</th><th class='text-end'>目前權重</th></tr></thead><tbody><tr><td>2330</td><td>台積電</td><td class='text-end text-down'>-16.45%</td><td class='text-end'>8.55%</td></tr><tr><td>2454</td><td>聯發科</td><td class='text-end text-down'>-15.81%</td><td class='text-end'>2.19%</td></tr><tr><td>2345</td><td>智邦</td><td class='text-end text-down'>-6.74%</td><td class='text-end'>5.26%</td></tr><tr><td>2308</td><td>台達電</td><td class='text-end text-down'>-4.02%</td><td class='text-end'>5.98%</td></tr><tr><td>3037</td><td>欣興</td><td class='text-end text-down'>-2.27%</td><td class='text-end'>3.73%</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 32px;">📊 單股歷史走勢</h2>
+    <p class="meta">點選個股查看權重與股數變化</p>
+    <div class="tags"><div class="tag" onclick='showTrend("2330", this)'>2330 台積電</div><div class="tag" onclick='showTrend("2383", this)'>2383 台光電</div><div class="tag" onclick='showTrend("3653", this)'>3653 健策</div><div class="tag" onclick='showTrend("2308", this)'>2308 台達電</div><div class="tag" onclick='showTrend("2368", this)'>2368 金像電</div><div class="tag" onclick='showTrend("3665", this)'>3665 貿聯-KY</div><div class="tag" onclick='showTrend("2345", this)'>2345 智邦</div><div class="tag" onclick='showTrend("3017", this)'>3017 奇鋐</div><div class="tag" onclick='showTrend("6223", this)'>6223 旺矽</div><div class="tag" onclick='showTrend("8046", this)'>8046 南電</div><div class="tag" onclick='showTrend("3037", this)'>3037 欣興</div><div class="tag" onclick='showTrend("5274", this)'>5274 信驊</div><div class="tag" onclick='showTrend("2327", this)'>2327 國巨*</div><div class="tag" onclick='showTrend("6515", this)'>6515 穎崴</div><div class="tag" onclick='showTrend("2454", this)'>2454 聯發科</div><div class="tag" onclick='showTrend("3711", this)'>3711 日月光投控</div><div class="tag" onclick='showTrend("6805", this)'>6805 富世達</div><div class="tag" onclick='showTrend("6274", this)'>6274 台燿</div><div class="tag" onclick='showTrend("6510", this)'>6510 精測</div><div class="tag" onclick='showTrend("2449", this)'>2449 京元電子</div><div class="tag" onclick='showTrend("6669", this)'>6669 緯穎</div><div class="tag" onclick='showTrend("2303", this)'>2303 聯電</div><div class="tag" onclick='showTrend("8358", this)'>8358 金居</div><div class="tag" onclick='showTrend("3211", this)'>3211 順達</div><div class="tag" onclick='showTrend("3661", this)'>3661 世芯-KY</div><div class="tag" onclick='showTrend("3189", this)'>3189 景碩</div><div class="tag" onclick='showTrend("5439", this)'>5439 高技</div><div class="tag" onclick='showTrend("2404", this)'>2404 漢唐</div><div class="tag" onclick='showTrend("8210", this)'>8210 勤誠</div><div class="tag" onclick='showTrend("6147", this)'>6147 頎邦</div><div class="tag" onclick='showTrend("3443", this)'>3443 創意</div><div class="tag" onclick='showTrend("3264", this)'>3264 欣銓</div><div class="tag" onclick='showTrend("4979", this)'>4979 華星光</div><div class="tag" onclick='showTrend("1303", this)'>1303 南亞</div><div class="tag" onclick='showTrend("8996", this)'>8996 高力</div><div class="tag" onclick='showTrend("6187", this)'>6187 萬潤</div><div class="tag" onclick='showTrend("6488", this)'>6488 環球晶</div><div class="tag" onclick='showTrend("6191", this)'>6191 精成科</div><div class="tag" onclick='showTrend("3583", this)'>3583 辛耘</div><div class="tag" onclick='showTrend("7769", this)'>7769 鴻勁</div><div class="tag" onclick='showTrend("2481", this)'>2481 強茂</div><div class="tag" onclick='showTrend("3376", this)'>3376 新日興</div><div class="tag" onclick='showTrend("3324", this)'>3324 雙鴻</div><div class="tag" onclick='showTrend("2002", this)'>2002 中鋼</div><div class="tag" onclick='showTrend("3217", this)'>3217 優群</div><div class="tag" onclick='showTrend("1319", this)'>1319 東陽</div><div class="tag" onclick='showTrend("3008", this)'>3008 大立光</div><div class="tag" onclick='showTrend("2313", this)'>2313 華通</div><div class="tag" onclick='showTrend("1815", this)'>1815 富喬</div><div class="tag" onclick='showTrend("2439", this)'>2439 美律</div><div class="tag" onclick='showTrend("2357", this)'>2357 華碩</div><div class="tag" onclick='showTrend("5347", this)'>5347 世界</div><div class="tag" onclick='showTrend("3045", this)'>3045 台灣大</div></div>
+    <div id="placeholder" class="placeholder">👆 請點選上方個股</div>
+    <div id="charts" style="display:none;">
+      <h3 id="chartTitle"></h3>
+      <div id="weightChart"></div>
+      <div id="sharesChart" style="margin-top: 20px;"></div>
+    </div>
+
+    <div class="footer">
+      產生時間 2026-04-20 09:41:55
+    </div>
   </div>
-  <p>需要至少 2 筆歷史快照才能分析趨勢。目前有 1 筆快照，請等系統累積幾天的資料後再來看。</p>
-</div></body></html>
+
+  <script>
+    const trendData = {"1303": {"name": "南亞", "dates": ["2026-04-20"], "weights": [0.41], "shares": [8013000]}, "1319": {"name": "東陽", "dates": ["2026-04-20"], "weights": [0.02], "shares": [506000]}, "1815": {"name": "富喬", "dates": ["2026-04-20"], "weights": [0.01], "shares": [106000]}, "2002": {"name": "中鋼", "dates": ["2026-04-20"], "weights": [0.06], "shares": [5158000]}, "2303": {"name": "聯電", "dates": ["2026-04-20"], "weights": [1.33], "shares": [29205000]}, "2308": {"name": "台達電", "dates": ["2026-04-19", "2026-04-20"], "weights": [10.0, 5.98], "shares": [250000, 5317000]}, "2313": {"name": "華通", "dates": ["2026-04-20"], "weights": [0.02], "shares": [114000]}, "2327": {"name": "國巨*", "dates": ["2026-04-20"], "weights": [2.67], "shares": [14138000]}, "2330": {"name": "台積電", "dates": ["2026-04-19", "2026-04-20"], "weights": [25.0, 8.55], "shares": [2000000, 7131000]}, "2345": {"name": "智邦", "dates": ["2026-04-19", "2026-04-20"], "weights": [12.0, 5.26], "shares": [400000, 4431000]}, "2357": {"name": "華碩", "dates": ["2026-04-20"], "weights": [0.0], "shares": [13000]}, "2368": {"name": "金像電", "dates": ["2026-04-20"], "weights": [5.29], "shares": [7389000]}, "2383": {"name": "台光電", "dates": ["2026-04-20"], "weights": [7.15], "shares": [3138000]}, "2404": {"name": "漢唐", "dates": ["2026-04-20"], "weights": [0.64], "shares": [1056000]}, "2439": {"name": "美律", "dates": ["2026-04-20"], "weights": [0.0], "shares": [13000]}, "2449": {"name": "京元電子", "dates": ["2026-04-20"], "weights": [1.59], "shares": [9930000]}, "2454": {"name": "聯發科", "dates": ["2026-04-19", "2026-04-20"], "weights": [18.0, 2.19], "shares": [800000, 1948000]}, "2481": {"name": "強茂", "dates": ["2026-04-20"], "weights": [0.24], "shares": [3649000]}, "3008": {"name": "大立光", "dates": ["2026-04-20"], "weights": [0.02], "shares": [13000]}, "3017": {"name": "奇鋐", "dates": ["2026-04-20"], "weights": [5.23], "shares": [3547000]}, "3037": {"name": "欣興", "dates": ["2026-04-19", "2026-04-20"], "weights": [6.0, 3.73], "shares": [300000, 9287000]}, "3045": {"name": "台灣大", "dates": ["2026-04-20"], "weights": [0.0], "shares": [13000]}, "3189": {"name": "景碩", "dates": ["2026-04-20"], "weights": [0.72], "shares": [2826000]}, "3211": {"name": "順達", "dates": ["2026-04-20"], "weights": [0.84], "shares": [3859000]}, "3217": {"name": "優群", "dates": ["2026-04-20"], "weights": [0.06], "shares": [580000]}, "3264": {"name": "欣銓", "dates": ["2026-04-20"], "weights": [0.52], "shares": [4715000]}, "3324": {"name": "雙鴻", "dates": ["2026-04-20"], "weights": [0.1], "shares": [168000]}, "3376": {"name": "新日興", "dates": ["2026-04-20"], "weights": [0.19], "shares": [1560000]}, "3443": {"name": "創意", "dates": ["2026-04-20"], "weights": [0.57], "shares": [271000]}, "3583": {"name": "辛耘", "dates": ["2026-04-20"], "weights": [0.25], "shares": [527000]}, "3653": {"name": "健策", "dates": ["2026-04-20"], "weights": [6.27], "shares": [2108000]}, "3661": {"name": "世芯-KY", "dates": ["2026-04-20"], "weights": [0.75], "shares": [350000]}, "3665": {"name": "貿聯-KY", "dates": ["2026-04-20"], "weights": [5.26], "shares": [3612848]}, "3711": {"name": "日月光投控", "dates": ["2026-04-20"], "weights": [1.96], "shares": [7167000]}, "4979": {"name": "華星光", "dates": ["2026-04-20"], "weights": [0.43], "shares": [1037000]}, "5274": {"name": "信驊", "dates": ["2026-04-20"], "weights": [3.0], "shares": [351000]}, "5347": {"name": "世界", "dates": ["2026-04-20"], "weights": [0.0], "shares": [10000]}, "5439": {"name": "高技", "dates": ["2026-04-20"], "weights": [0.69], "shares": [2656000]}, "6147": {"name": "頎邦", "dates": ["2026-04-20"], "weights": [0.59], "shares": [7884000]}, "6187": {"name": "萬潤", "dates": ["2026-04-20"], "weights": [0.32], "shares": [436000]}, "6191": {"name": "精成科", "dates": ["2026-04-20"], "weights": [0.26], "shares": [3814000]}, "6223": {"name": "旺矽", "dates": ["2026-04-20"], "weights": [5.01], "shares": [1648000]}, "6274": {"name": "台燿", "dates": ["2026-04-20"], "weights": [1.7], "shares": [3019000]}, "6488": {"name": "環球晶", "dates": ["2026-04-20"], "weights": [0.3], "shares": [923000]}, "6510": {"name": "精測", "dates": ["2026-04-20"], "weights": [1.6], "shares": [711000]}, "6515": {"name": "穎崴", "dates": ["2026-04-20"], "weights": [2.2], "shares": [344000]}, "6669": {"name": "緯穎", "dates": ["2026-04-20"], "weights": [1.37], "shares": [582000]}, "6805": {"name": "富世達", "dates": ["2026-04-20"], "weights": [1.72], "shares": [1536000]}, "7769": {"name": "鴻勁", "dates": ["2026-04-20"], "weights": [0.25], "shares": [94000]}, "8046": {"name": "南電", "dates": ["2026-04-20"], "weights": [4.06], "shares": [8609000]}, "8210": {"name": "勤誠", "dates": ["2026-04-20"], "weights": [0.61], "shares": [1005000]}, "8358": {"name": "金居", "dates": ["2026-04-20"], "weights": [1.32], "shares": [5508000]}, "8996": {"name": "高力", "dates": ["2026-04-20"], "weights": [0.38], "shares": [535000]}};
+    function showTrend(code, el) {
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('placeholder').style.display = 'none';
+      document.getElementById('charts').style.display = 'block';
+      const d = trendData[code];
+      document.getElementById('chartTitle').innerText =
+        code + ' ' + d.name + ' 歷史走勢';
+      Plotly.newPlot('weightChart', [{
+        x: d.dates, y: d.weights, mode: 'lines+markers',
+        line: { color: '#16a085', width: 3 },
+        name: '權重'
+      }], {
+        title: '權重 (%)', hovermode: 'x unified',
+        margin: { t: 40, b: 40, l: 60, r: 20 }
+      });
+      Plotly.newPlot('sharesChart', [{
+        x: d.dates, y: d.shares, mode: 'lines+markers',
+        line: { color: '#3498db', width: 3 },
+        name: '股數'
+      }], {
+        title: '持有股數', hovermode: 'x unified',
+        margin: { t: 40, b: 40, l: 80, r: 20 }
+      });
+    }
+  </script>
+</body>
+</html>
