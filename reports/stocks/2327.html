@@ -96,8 +96,8 @@ tr:hover { background: #fafbfc; }
     </h1>
     <p class="meta">
       今日被 <strong>3</strong> 檔 ETF 持有
-      · 異動 <strong>2</strong> 筆
-      · 更新時間 2026-04-21 10:06
+      · 異動 <strong>1</strong> 筆
+      · 更新時間 2026-04-22 10:06
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -120,18 +120,18 @@ tr:hover { background: #fafbfc; }
           <td><a href="../00981A.html">00981A</a></td>
           <td>統一台股增長</td>
           <td><span class="badge badge-up">📈 加碼</span></td>
-          <td class="text-end">14,238,000</td>
-          <td class="text-end">+100,000</td>
-          <td class="text-end">2.51%</td>
+          <td class="text-end">14,288,000</td>
+          <td class="text-end">+50,000</td>
+          <td class="text-end">2.34%</td>
         </tr>
         
         <tr>
           <td><a href="../00400A.html">00400A</a></td>
           <td>國泰台股動能高息</td>
-          <td><span class="badge badge-up">📈 加碼</span></td>
+          <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">584,000</td>
-          <td class="text-end">+43,000</td>
-          <td class="text-end">1.25%</td>
+          <td class="text-end"></td>
+          <td class="text-end">1.09%</td>
         </tr>
         
         <tr>
@@ -160,7 +160,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20", "2026-04-21"], "datasets": [{"label": "00981A", "data": [null, 2.67, 2.51], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00991A", "data": [0.0, 0.0, 0.0], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00400A", "data": [1.37, 1.26, 1.25], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "2327 國巨* - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22"], "datasets": [{"label": "00981A", "data": [null, 2.67, 2.51, 2.34], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00991A", "data": [0.0, 0.0, 0.0, 0.0], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00400A", "data": [1.37, 1.26, 1.25, 1.09], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "2327 國巨* - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
