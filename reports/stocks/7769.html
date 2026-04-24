@@ -97,7 +97,7 @@ tr:hover { background: #fafbfc; }
     <p class="meta">
       今日被 <strong>4</strong> 檔 ETF 持有
       · 異動 <strong>1</strong> 筆
-      · 更新時間 2026-04-23 10:10
+      · 更新時間 2026-04-24 10:12
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -122,7 +122,7 @@ tr:hover { background: #fafbfc; }
           <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">105,000</td>
           <td class="text-end"></td>
-          <td class="text-end">5.08%</td>
+          <td class="text-end">4.83%</td>
         </tr>
         
         <tr>
@@ -131,24 +131,24 @@ tr:hover { background: #fafbfc; }
           <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">86,000</td>
           <td class="text-end"></td>
-          <td class="text-end">2.95%</td>
+          <td class="text-end">2.84%</td>
         </tr>
         
         <tr>
           <td><a href="../00981A.html">00981A</a></td>
           <td>統一台股增長</td>
-          <td><span class="badge badge-up">📈 加碼</span></td>
+          <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">97,000</td>
-          <td class="text-end">+2,000</td>
-          <td class="text-end">0.23%</td>
+          <td class="text-end"></td>
+          <td class="text-end">0.22%</td>
         </tr>
         
         <tr>
           <td><a href="../00991A.html">00991A</a></td>
           <td>復華台灣未來50</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">300,000</td>
-          <td class="text-end"></td>
+          <td><span class="badge badge-down">📉 減碼</span></td>
+          <td class="text-end">270,000</td>
+          <td class="text-end">-30,000</td>
           <td class="text-end">0.00%</td>
         </tr>
         
@@ -169,7 +169,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "00980A", "data": [null, 2.78, 2.73, 2.86, 2.95], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00985A", "data": [null, 1.3, 1.27, 5.02, 5.08], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00981A", "data": [null, 0.25, 0.23, 0.23, 0.23], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}, {"label": "00991A", "data": [0.0, 0.0, 0.0, 0.0, 0.0], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b33", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "7769 鴻勁精密 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24"], "datasets": [{"label": "00980A", "data": [null, 2.78, 2.73, 2.86, 2.95, 2.84], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00985A", "data": [null, 1.3, 1.27, 5.02, 5.08, 4.83], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00981A", "data": [null, 0.25, 0.23, 0.23, 0.23, 0.22], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}, {"label": "00991A", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b33", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "7769 鴻勁精密 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
