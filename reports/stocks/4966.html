@@ -96,8 +96,8 @@ tr:hover { background: #fafbfc; }
     </h1>
     <p class="meta">
       今日被 <strong>1</strong> 檔 ETF 持有
-      · 異動 <strong>0</strong> 筆
-      · 更新時間 2026-04-24 10:12
+      · 異動 <strong>1</strong> 筆
+      · 更新時間 2026-04-27 10:35
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -119,10 +119,10 @@ tr:hover { background: #fafbfc; }
         <tr>
           <td><a href="../00981A.html">00981A</a></td>
           <td>統一台股增長</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">370,000</td>
-          <td class="text-end"></td>
-          <td class="text-end">0.11%</td>
+          <td><span class="badge badge-up">📈 加碼</span></td>
+          <td class="text-end">371,000</td>
+          <td class="text-end">+1,000</td>
+          <td class="text-end">0.10%</td>
         </tr>
         
       </tbody>
@@ -142,7 +142,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-04-23", "2026-04-24"], "datasets": [{"label": "00981A", "data": [0.11, 0.11], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "4966 譜瑞-KY - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-04-23", "2026-04-24", "2026-04-27"], "datasets": [{"label": "00981A", "data": [0.11, 0.11, 0.1], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "4966 譜瑞-KY - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>

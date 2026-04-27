@@ -95,9 +95,9 @@ tr:hover { background: #fafbfc; }
       
     </h1>
     <p class="meta">
-      今日被 <strong>2</strong> 檔 ETF 持有
+      今日被 <strong>3</strong> 檔 ETF 持有
       · 異動 <strong>1</strong> 筆
-      · 更新時間 2026-04-24 10:12
+      · 更新時間 2026-04-27 10:35
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -122,16 +122,25 @@ tr:hover { background: #fafbfc; }
           <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">2,654,000</td>
           <td class="text-end"></td>
-          <td class="text-end">2.37%</td>
+          <td class="text-end">2.46%</td>
         </tr>
         
         <tr>
           <td><a href="../00985A.html">00985A</a></td>
           <td>野村台灣增強50</td>
-          <td><span class="badge badge-up">📈 加碼</span></td>
+          <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">236,000</td>
-          <td class="text-end">+159,000</td>
-          <td class="text-end">0.80%</td>
+          <td class="text-end"></td>
+          <td class="text-end">0.81%</td>
+        </tr>
+        
+        <tr>
+          <td><a href="../00400A.html">00400A</a></td>
+          <td>國泰台股動能高息</td>
+          <td><span class="badge badge-new">🆕 新進</span></td>
+          <td class="text-end">400,000</td>
+          <td class="text-end">+400,000</td>
+          <td class="text-end">0.77%</td>
         </tr>
         
       </tbody>
@@ -151,7 +160,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24"], "datasets": [{"label": "00985A", "data": [null, 0.25, 0.25, 0.24, 0.25, 0.8], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00982A", "data": [2.0668, 2.2269, 2.1954, 2.1663, 2.283, 2.3735], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "4958 臻鼎科技控股 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-27"], "datasets": [{"label": "00985A", "data": [null, 0.25, 0.25, 0.24, 0.25, 0.8, 0.81], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00982A", "data": [2.0668, 2.2269, 2.1954, 2.1663, 2.283, 2.3735, 2.4623], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00400A", "data": [null, null, null, null, null, null, 0.77], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "4958 臻鼎科技控股 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
