@@ -96,8 +96,8 @@ tr:hover { background: #fafbfc; }
     </h1>
     <p class="meta">
       今日被 <strong>1</strong> 檔 ETF 持有
-      · 異動 <strong>0</strong> 筆
-      · 更新時間 2026-04-29 10:32
+      · 異動 <strong>1</strong> 筆
+      · 更新時間 2026-04-30 10:30
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -119,10 +119,10 @@ tr:hover { background: #fafbfc; }
         <tr>
           <td><a href="../00980A.html">00980A</a></td>
           <td>野村臺灣智慧優選</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">5,569,622</td>
-          <td class="text-end"></td>
-          <td class="text-end">1.23%</td>
+          <td><span class="badge badge-down">📉 減碼</span></td>
+          <td class="text-end">1,833,622</td>
+          <td class="text-end">-3,736,000</td>
+          <td class="text-end">0.40%</td>
         </tr>
         
       </tbody>
@@ -142,7 +142,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-27", "2026-04-28", "2026-04-29"], "datasets": [{"label": "00980A", "data": [1.33, 1.31, 1.29, 1.29, 1.27, 1.26, 1.24, 1.23], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "2884 玉山金融控股 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30"], "datasets": [{"label": "00980A", "data": [1.33, 1.31, 1.29, 1.29, 1.27, 1.26, 1.24, 1.23, 0.4], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "2884 玉山金融控股 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
