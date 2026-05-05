@@ -43,7 +43,8 @@ etfs:
     fetcher: "nomura"
     params:
       fund_id: "00999A"
-    enabled: false  # Phase 2 啟用
+    enabled: true
+    track_changelog: true  # 累積異動日誌到 data/00999A_changelog.csv
 
   # ========== 統一投信（ezmoney.com.tw 爬蟲）==========
   - code: "00981A"
