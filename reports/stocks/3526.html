@@ -96,8 +96,8 @@ tr:hover { background: #fafbfc; }
     </h1>
     <p class="meta">
       今日被 <strong>1</strong> 檔 ETF 持有
-      · 異動 <strong>0</strong> 筆
-      · 更新時間 2026-05-25 12:12
+      · 異動 <strong>1</strong> 筆
+      · 更新時間 2026-05-28 12:06
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -119,10 +119,10 @@ tr:hover { background: #fafbfc; }
         <tr>
           <td><a href="../00999A.html">00999A</a></td>
           <td>野村臺灣策略高息</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">823,000</td>
-          <td class="text-end"></td>
-          <td class="text-end">1.78%</td>
+          <td><span class="badge badge-down">📉 減碼</span></td>
+          <td class="text-end">802,000</td>
+          <td class="text-end">-21,000</td>
+          <td class="text-end">1.83%</td>
         </tr>
         
       </tbody>
@@ -142,7 +142,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-05-05", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-21", "2026-05-22", "2026-05-25"], "datasets": [{"label": "00999A", "data": [2.03, 2.04, 1.75, 1.89, 1.84, 1.85, 1.85, 1.83, 1.83, 1.8, 1.78, 1.8, 1.76, 1.78], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "3526 凡甲科技 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-05-05", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-21", "2026-05-22", "2026-05-25", "2026-05-28"], "datasets": [{"label": "00999A", "data": [2.03, 2.04, 1.75, 1.89, 1.84, 1.85, 1.85, 1.83, 1.83, 1.8, 1.78, 1.8, 1.76, 1.78, 1.83], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "3526 凡甲科技 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
