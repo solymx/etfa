@@ -96,8 +96,8 @@ tr:hover { background: #fafbfc; }
     </h1>
     <p class="meta">
       今日被 <strong>2</strong> 檔 ETF 持有
-      · 異動 <strong>0</strong> 筆
-      · 更新時間 2026-06-03 13:01
+      · 異動 <strong>1</strong> 筆
+      · 更新時間 2026-06-04 11:39
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -122,16 +122,16 @@ tr:hover { background: #fafbfc; }
           <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">201,000</td>
           <td class="text-end"></td>
-          <td class="text-end">1.48%</td>
+          <td class="text-end">1.44%</td>
         </tr>
         
         <tr>
           <td><a href="../00981A.html">00981A</a></td>
           <td>統一台股增長</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">329,000</td>
-          <td class="text-end"></td>
-          <td class="text-end">0.45%</td>
+          <td><span class="badge badge-down">📉 減碼</span></td>
+          <td class="text-end">161,000</td>
+          <td class="text-end">-168,000</td>
+          <td class="text-end">0.22%</td>
         </tr>
         
       </tbody>
@@ -151,7 +151,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-21", "2026-05-22", "2026-05-25", "2026-05-28", "2026-05-29", "2026-06-01", "2026-06-02", "2026-06-03"], "datasets": [{"label": "00981A", "data": [0.16, 0.17, 0.38, 0.44, 0.42, 0.44, 0.43, 0.43, 0.44, 0.4, 0.4, 0.44, 0.44, 0.45], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00982A", "data": [null, null, null, null, null, 0.5468, 1.3879, 1.3962, 1.4558, 1.2944, 1.3021, 1.4194, 1.4547, 1.4846], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "3008 大立光 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-21", "2026-05-22", "2026-05-25", "2026-05-28", "2026-05-29", "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04"], "datasets": [{"label": "00981A", "data": [0.16, 0.17, 0.38, 0.44, 0.42, 0.44, 0.43, 0.43, 0.44, 0.4, 0.4, 0.44, 0.44, 0.45, 0.22], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00982A", "data": [null, null, null, null, null, 0.5468, 1.3879, 1.3962, 1.4558, 1.2944, 1.3021, 1.4194, 1.4547, 1.4846, 1.4388], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "3008 大立光 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
