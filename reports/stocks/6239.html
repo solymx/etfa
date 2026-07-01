@@ -96,8 +96,8 @@ tr:hover { background: #fafbfc; }
     </h1>
     <p class="meta">
       今日被 <strong>3</strong> 檔 ETF 持有
-      · 異動 <strong>0</strong> 筆
-      · 更新時間 2026-06-30 11:32
+      · 異動 <strong>1</strong> 筆
+      · 更新時間 2026-07-01 11:43
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
@@ -122,16 +122,16 @@ tr:hover { background: #fafbfc; }
           <td><span class="badge badge-flat">持平</span></td>
           <td class="text-end">700,000</td>
           <td class="text-end"></td>
-          <td class="text-end">0.44%</td>
+          <td class="text-end">0.43%</td>
         </tr>
         
         <tr>
           <td><a href="../00985A.html">00985A</a></td>
           <td>野村台灣增強50</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">16,000</td>
-          <td class="text-end"></td>
-          <td class="text-end">0.05%</td>
+          <td><span class="badge badge-down">📉 減碼</span></td>
+          <td class="text-end">12,000</td>
+          <td class="text-end">-4,000</td>
+          <td class="text-end">0.04%</td>
         </tr>
         
         <tr>
@@ -160,7 +160,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-26", "2026-06-29", "2026-06-30"], "datasets": [{"label": "00985A", "data": [0.08, 0.08, 0.08, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00982A", "data": [null, null, null, null, null, null, null, null, null, null, 0.4308, 0.4589, 0.4547, 0.4677, 0.4626, 0.4488, 0.4436, 0.4306, 0.4245, 0.4437], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00400A", "data": [0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.03, 0.03, 0.03], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "6239 力成科技 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-26", "2026-06-29", "2026-06-30", "2026-07-01"], "datasets": [{"label": "00985A", "data": [0.08, 0.08, 0.08, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.04], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}, {"label": "00982A", "data": [null, null, null, null, null, null, null, null, null, null, 0.4308, 0.4589, 0.4547, 0.4677, 0.4626, 0.4488, 0.4436, 0.4306, 0.4245, 0.4437, 0.4335], "borderColor": "#ef4444", "backgroundColor": "#ef444433", "tension": 0.2, "spanGaps": true}, {"label": "00400A", "data": [0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.03, 0.03, 0.03, 0.03], "borderColor": "#10b981", "backgroundColor": "#10b98133", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "6239 力成科技 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
