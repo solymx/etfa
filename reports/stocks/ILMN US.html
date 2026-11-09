@@ -95,38 +95,13 @@ tr:hover { background: #fafbfc; }
       
     </h1>
     <p class="meta">
-      今日被 <strong>1</strong> 檔 ETF 持有
+      今日被 <strong>0</strong> 檔 ETF 持有
       · 異動 <strong>0</strong> 筆
-      · 更新時間 2026-11-06 16:18
+      · 更新時間 2026-11-09 19:09
     </p>
 
     <h2>📊 各 ETF 當前持股</h2>
-    
-    
-    <table class="holdings-table">
-      <thead>
-        <tr>
-          <th>ETF</th>
-          <th>名稱</th>
-          <th>今日狀態</th>
-          <th class="text-end">持有股數</th>
-          <th class="text-end">較上次增減</th>
-          <th class="text-end">權重</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td><a href="../00986A.html">00986A</a></td>
-          <td>台新全球龍頭成長</td>
-          <td><span class="badge badge-flat">持平</span></td>
-          <td class="text-end">401</td>
-          <td class="text-end"></td>
-          <td class="text-end">0.62%</td>
-        </tr>
-        
-      </tbody>
-    </table>
+    <p class="text-muted">目前無 ETF 持有此股。</p>
     
 
     <h2>📈 權重歷史趨勢</h2>
@@ -142,7 +117,7 @@ tr:hover { background: #fafbfc; }
   </div>
 
   <script>
-    const config = {"type": "line", "data": {"labels": ["2026-10-07", "2026-10-08", "2026-10-12", "2026-10-13", "2026-10-14", "2026-10-15", "2026-10-16", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06"], "datasets": [{"label": "00986A", "data": [0.5864, 0.5789, 0.5847, 0.6155, 0.6078, 0.6274, 0.6435, 0.646, 0.6419, 0.6594, 0.6845, 0.6775, 0.6784, 0.6936, 0.7074, 0.5997, 0.5909, 0.64, 0.6167, 0.6167], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "ILMN US 伊魯米納公司 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
+    const config = {"type": "line", "data": {"labels": ["2026-10-12", "2026-10-13", "2026-10-14", "2026-10-15", "2026-10-16", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06"], "datasets": [{"label": "00986A", "data": [0.5847, 0.6155, 0.6078, 0.6274, 0.6435, 0.646, 0.6419, 0.6594, 0.6845, 0.6775, 0.6784, 0.6936, 0.7074, 0.5997, 0.5909, 0.64, 0.6167, 0.6167], "borderColor": "#3b82f6", "backgroundColor": "#3b82f633", "tension": 0.2, "spanGaps": true}]}, "options": {"responsive": true, "plugins": {"title": {"display": true, "text": "ILMN US 伊魯米納公司 - 各 ETF 權重變化（近期）"}, "legend": {"position": "bottom"}}, "scales": {"y": {"title": {"display": true, "text": "權重 (%)"}}}}};
     new Chart(document.getElementById('weightChart'), config);
   </script>
 </body>
